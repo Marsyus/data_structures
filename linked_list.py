@@ -40,3 +40,19 @@ class LinkedList:
             return removed_node.data
         return None
     
+    def remove_at_end(self):
+        if self.head:
+            if self.head == self.tail:
+                removed_node = self.head
+                self.head = None
+                self.tail = None
+                return removed_node.data
+            current_node = self.head
+            while current_node.next != self.tail:
+                current_node = current_node.next
+            removed_node = self.tail
+            current_node.next = None
+            self.tail = current_node
+            return removed_node.data
+        return None
+    
