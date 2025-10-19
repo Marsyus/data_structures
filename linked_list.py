@@ -56,3 +56,18 @@ class LinkedList:
             return removed_node.data
         return None
     
+    def remove_at(self, data):
+        if self.head:
+            if self.head.data == data:
+                return self.remove_at_beginning()
+            current_node = self.head
+            while current_node.next:
+                if current_node.next.data == data:
+                    removed_node = current_node.next
+                    current_node.next = current_node.next.next
+                    if removed_node == self.tail:
+                        self.tail = current_node
+                    return removed_node.data
+                current_node = current_node.next
+        return None
+    
