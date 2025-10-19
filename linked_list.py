@@ -31,3 +31,12 @@ class LinkedList:
                 current_node = current_node.next
         return False
     
+    def remove_at_beginning(self):
+        if self.head:
+            removed_node = self.head
+            self.head = self.head.next
+            if self.head is None:
+                self.tail = None
+            return removed_node.data
+        return None
+    
